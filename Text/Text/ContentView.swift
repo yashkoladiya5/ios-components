@@ -26,11 +26,10 @@ struct ContentView: View {
             .border(.red,width: 5)
             .background(.blue)
         
-            .clipShape(RoundedRectangle(cornerRadius: 40,style: .circular))
-            .overlay(RoundedRectangle(cornerRadius: 40,).stroke( .red,lineWidth: 5))
+            .clipShape(RoundedRectangle(cornerRadius: 40, style: .circular))
+            // Overlay border matching the rounded corner shape
+            .overlay(RoundedRectangle(cornerRadius: 40, style: .circular).stroke(.red, lineWidth: 5))
             .multilineTextAlignment(.center)
-            
-        
     }
 
     
