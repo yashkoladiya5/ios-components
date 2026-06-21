@@ -46,3 +46,14 @@ private let itemFormatter: DateFormatter = {
 #Preview {
     ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
 }
+
+// MARK: - View Extension for Rounded Borders
+extension View {
+    /// Applies a rounded corner clip and matching overlay stroke border.
+    func roundedBorder<S: ShapeStyle>(_ content: S, cornerRadius: CGFloat, lineWidth: CGFloat = 1) -> some View {
+        self
+            .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .circular))
+            .overlay(RoundedRectangle(cornerRadius: cornerRadius, style: .circular).stroke(content, lineWidth: lineWidth))
+    }
+}
+
